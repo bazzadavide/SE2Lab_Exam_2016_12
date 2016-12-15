@@ -1,0 +1,25 @@
+{
+  "name": "SE2Lab_Exam_2016_12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bazzadavide/SE2Lab_Exam_2016_12"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bazzadavide/SE2Lab_Exam_2016_12/issues"
+  },
+  "homepage": "https://github.com/bazzadavide/SE2Lab_Exam_2016_12#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
+
