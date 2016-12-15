@@ -134,6 +134,33 @@ var insertStudent = function insertStudent(student)
 }
 
 //AGGIUNGERE QUI SOTTO NUOVE FUNZIONI
+/**
+ * @brief This function search the studente that hive high or low mark, depending on the param
+ * @param String mark, String typeOfSearch
+ * @return a list of Student that have the mark that the request want
+ */
+var listOfMarkSearch = function searchByMark(mark,typeOfSearch){
+    var listofMarked = [];
+    var cont = 0;
+    for(i=0; i<studentList.length; i++){
+        if(typeOfSearch == '<'){
+            if(studentList[i].mark < mark){
+                listOfMarked[cont] = studentList[i];
+                cont++;
+            }
+        }
+        if(typeOfSearch == '>'){
+            if(studentList[i].mark > mark){
+                listOfMarked[cont] = studentList[i];
+                cont++;
+            }
+        }
+        
+    }
+    
+    return listofMarked;
+    
+}
 
 
 
@@ -143,4 +170,5 @@ exports.searchStudentSSN = searchStudentSSN;
 exports.deleteStudentID = deleteStudentID; 
 exports.deleteStudentSSN = deleteStudentSSN; 
 exports.insertStudent = insertStudent;  
-exports.getList = getList; 
+exports.getList = getList;
+exports.listOfMarkSearch = listOfMarkSearch;

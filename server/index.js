@@ -272,3 +272,51 @@ app.listen(app.get('port'), function() {
 });
 
 //AGGIUNGERE QUI SOTTO NUOVE FUNZIONI
+app.post('/searchByMark', function(request, response){
+    var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+    
+    var mark;
+    var typeOfSearch;
+    var student;
+    
+    
+    if ( typeof request.body !== 'undefined' && request.body)
+	{
+		if ( typeof request.body.mark !== 'undefined' && request.body.ID)
+            {
+                var temp;
+                temp = request.body.mark;
+                typeOfSearch = temp[0];
+                mark = temp[1];
+            }
+        else{ 
+			mark = "not defined";
+            typeOfSearch = "not defined";
+        }
+    }
+	else
+	{
+		mark = "body undefined";
+        typeOfSearch = "body undefined";
+	}
+    
+     if (mark !="not defined" && mark!="body undefined" && typeOfSearch !="not defined" && typeOfSearch!="body undefined"){
+        student = studentManager.listOfMarkSearch;
+         	if (student!= null)
+		{
+			response.writeHead(200, headers);
+			response.end(JSON.stringify(student));
+		}
+		else
+		{
+			response.writeHead(404, headers);
+			response.end(JSON.stringify());
+		}
+	}   
+});
